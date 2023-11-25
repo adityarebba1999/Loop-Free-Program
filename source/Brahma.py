@@ -10,7 +10,10 @@ print(z3.get_version_string())
 
 def p1(context, opts):
     library = Library.brahma_std()
+    # print(library.components)
+
     builder = ProgramBuilder()
+    
     a = builder.var()
     b = builder.const_(1)
     c = builder.sub(a, b)
@@ -27,6 +30,7 @@ def p2(context, opts):
     c = builder.add(a, b)
     _ = builder.and_(a, c)
     spec = builder.finish()
+    print(spec)
 
 def p3(context, opts):
     library = Library.brahma_std()
@@ -36,6 +40,7 @@ def p3(context, opts):
     c = builder.sub(b, a)
     _ = builder.and_(a, c)
     spec = builder.finish()
+    print(spec)
 
 def p4(context, opts):
     library = Library.brahma_std()
@@ -45,6 +50,7 @@ def p4(context, opts):
     c = builder.sub(a, b)
     _ = builder.xor(a, c)
     spec = builder.finish()
+    print(spec)
 
 def p5(context, opts):
 
@@ -55,6 +61,7 @@ def p5(context, opts):
     c = builder.sub(a, b)
     _ = builder.or_(a, c)
     spec = builder.finish()
+    print(spec)
 
 def p6(context, opts):
     library = Library.brahma_std()
@@ -64,6 +71,7 @@ def p6(context, opts):
     c = builder.add(a, b)
     _ = builder.or_(a, c)
     spec = builder.finish()
+    print(spec)
 
 def p7(context, opts):
     library = Library.brahma_std()
@@ -76,7 +84,7 @@ def p7(context, opts):
     o2 = builder.add(x, b)
     _ = builder.and_(o1, o2)
     spec = builder.finish()
-
+    print(spec)
 
 def main():
 

@@ -3,16 +3,20 @@ from Component import *
 
 class Library:
     def __init__(self, components):
+        # print("called Library")
         self.components = components
 
     @classmethod
     def brahma_std(cls):
         context = Context()
+        # print("called brahma")
+        # print(cls)
         return cls([
             add(),
             and_op(),
             const_(0),
             const_(sys.maxsize),
+
         ])
     
 class Instruction:
@@ -34,10 +38,11 @@ class Id:
         s = ""
         x = self.value
 
+        if x==0:
+            s = 'a'+s
         while x > 0:
-            y = (x - 1) % 26
-            x = (x - 1) // 26
+            y = (x) % 26
             s = chr(ord('a') + y) + s
-
+            x = (x - 1) // 26
         return s
 
