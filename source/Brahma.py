@@ -1,11 +1,15 @@
 from z3 import *
 import time
 import sys 
-from Lib import Library
+from Lib import Library, Synthesizer
 from Builder import ProgramBuilder
 sys.path.append('./source/component')
 
 print(z3.get_version_string())
+
+def synthesize(context, spec, library):
+    synthesizer = Synthesizer(context, library, spec)    
+    return synthesizer.synthesize()
 
 def print_spec(components, name):
     print(f"Problem: {name}")
@@ -24,6 +28,8 @@ def p1(context, opts):
 
     print_spec(spec, "p1")
 
+    # synthesize(context, spec, library)
+
 def p2(context, opts):
     library = Library.brahma_std()
     builder = ProgramBuilder()
@@ -34,6 +40,8 @@ def p2(context, opts):
     spec = builder.finish()
     
     print_spec(spec, "p2")
+
+    # synthesize(context, spec, library)
 
 def p3(context, opts):
     library = Library.brahma_std()
@@ -46,6 +54,8 @@ def p3(context, opts):
     
     print_spec(spec, "p3")
 
+    # synthesize(context, spec, library)
+
 def p4(context, opts):
     library = Library.brahma_std()
     builder = ProgramBuilder()
@@ -56,6 +66,8 @@ def p4(context, opts):
     spec = builder.finish()
     
     print_spec(spec, "p4")
+
+    # synthesize(context, spec, library)
 
 def p5(context, opts):
     library = Library.brahma_std()
@@ -68,6 +80,8 @@ def p5(context, opts):
     
     print_spec(spec, "p5")
 
+    # synthesize(context, spec, library)
+
 def p6(context, opts):
     library = Library.brahma_std()
     builder = ProgramBuilder()
@@ -78,6 +92,8 @@ def p6(context, opts):
     spec = builder.finish()
     
     print_spec(spec, "p6")
+
+    # synthesize(context, spec, library)
 
 def p7(context, opts):
     library = Library.brahma_std()
@@ -91,6 +107,8 @@ def p7(context, opts):
     spec = builder.finish()
     
     print_spec(spec, "p7")
+
+    # synthesize(context, spec, library)
 
 def main():
     problems = {
